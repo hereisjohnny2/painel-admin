@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "painel-admin-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-ic", "npm run dev"],
+      "port": 3000
+    }
+  ]
+}
