@@ -27,10 +27,16 @@ Open http://localhost:3000.
 | Script | What it does |
 |---|---|
 | `npm run dev` | Development server |
-| `npm run build` / `npm start` | Production build / server |
+| `npm run build` | Static production build in `out/` |
 | `npm test` | Unit and component tests (Vitest + Testing Library) |
 
-Deploying to Vercel (or any Next.js host) needs no configuration.
+## Deploying
+
+The app is exported as a static site (`output: "export"` in `next.config.mjs`). Every push to `main` runs `.github/workflows/deploy-pages.yml`, which runs the tests, builds with the repository's base path and publishes `out/` to GitHub Pages.
+
+One-time setup: in the repository on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
+To serve the site from the domain root (a custom domain or a `<user>.github.io` repository), leave `NEXT_PUBLIC_BASE_PATH` empty. The workflow sets it automatically from the Pages configuration.
 
 ## Project structure
 
